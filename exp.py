@@ -1,4 +1,3 @@
-# <<<<<<<<<<<<<<  ✨ Codeium Command 🌟  >>>>>>>>>>>>>>>>
 import os
 
 
@@ -17,4 +16,3 @@ print("\n")
 
 print("Current Directory:", current_directory)
 # print("PATH:", path)
-# <<<<<<<  47c7d28d-b2d9-4253-b53a-6951f5b4b021  >>>>>>>
