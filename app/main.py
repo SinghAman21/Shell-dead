@@ -6,7 +6,7 @@ def main():
     
     # Uncomment this block to pass the first stage
     while True:
-        sys.stdout.write("$ ")
+        sys.stdout.write("\u2620   ")
         sys.stdout.flush()
  
         # Wait for user input
