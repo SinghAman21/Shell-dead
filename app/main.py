@@ -11,7 +11,7 @@ def main():
     print("Current Directory:", current_directory)
     print("PATH:", PATH)
     while True:
-        sys.stdout.write("$ ")
+        sys.stdout.write("\u2620  ")
         sys.stdout.flush()
         user_input = input()
         if user_input == "exit 0":
