@@ -9,7 +9,7 @@ def main():
     PATH = os.environ.get("PATH")
     current_directory = os.getcwd()
     print("Current Directory:", current_directory)
-    print("PATH:", PATH)
+    # print("PATH:", PATH)
     while True:
         sys.stdout.write("\u2620  ")
         sys.stdout.flush()
@@ -29,14 +29,16 @@ def main():
         if user_input.startswith("type"):
             cmd = user_input.split(" ")[1]
             cmd_path = None
-            paths = PATH.split(":")
-            for path in paths:
-                if os.path.isfile(f"{path}/{cmd}"):
-                    cmd_path = f"{path}/{cmd}"
+            paths = PATH.split(";")
+            root = paths[0][0:3]
+            print(root)
+            for root, dirs, files in os.walk(root):
+                if cmd in files:
+                    cmd_path = os.path.join(root, cmd)
             if cmd in builtin_cmds:
                 sys.stdout.write(f"{cmd} is a shell builtin\n")
             elif cmd_path:
-                sys.stdout.write(f"{cmd} is {cmd_path}\n")
+                sys.stdout.write(f"{cmd} is in {cmd_path}\n")
             else:
                 sys.stdout.write(f"{cmd} not found\n")
             sys.stdout.flush()
