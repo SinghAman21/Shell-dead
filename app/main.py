@@ -22,6 +22,8 @@ def main():
     PATH = os.environ.get("PATH")
     # current_directory = os.getcwd()
     # print("Your Current Working is Directory:", current_directory)
+    print("Your Current Working is Directory:", current_directory)
+
     # print("PATH:", PATH)
     while True:
         sys.stdout.write(os.getcwd() + "> "   "\u2620  ")
@@ -42,6 +44,7 @@ def main():
         if user_input.startswith("type"):
             cmd = user_input.split(" ")[1]
             if cmd in builtin_cmds:
+
                 # sys.stdout.write(f"{cmd} is a shell builtin")
                 sys.stdout.write(f"{cmd} is a shell builtin\n")
                 sys.stdout.flush()
@@ -71,9 +74,8 @@ def main():
             sys.stdout.flush()
             continue
 
-        if not any(user_input.startswith(cmd) for cmd in builtin_cmds):
-            sys.stdout.write(f"{user_input}: command not found\n")
-            sys.stdout.flush()
+        sys.stdout.write(f"{user_input}: command not found\n")
+        sys.stdout.flush()
 
         if user_input.startswith("cd"):
             parts = user_input.split(" ", 1)  # Split only once to avoid IndexError
