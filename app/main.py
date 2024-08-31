@@ -22,7 +22,7 @@ def main():
     PATH = os.environ.get("PATH")
     # current_directory = os.getcwd()
     # print("Your Current Working is Directory:", current_directory)
-    print("Your Current Working is Directory:", current_directory)
+    # print("Your Current Working is Directory:", current_directory)
 
     # print("PATH:", PATH)
     while True:
@@ -74,9 +74,6 @@ def main():
             sys.stdout.flush()
             continue
 
-        sys.stdout.write(f"{user_input}: command not found\n")
-        sys.stdout.flush()
-
         if user_input.startswith("cd"):
             parts = user_input.split(" ", 1)  # Split only once to avoid IndexError
             if len(parts) > 1:
@@ -93,6 +90,10 @@ def main():
 
         if user_input == "pwd":
             print("pwd: " + os.getcwd())
+
+        if not any(user_input.startswith(cmd) for cmd in builtin_cmds):
+            sys.stdout.write(f"{user_input}: command not found\n")
+            sys.stdout.flush()
 
 if __name__ == "__main__":
     main()
