@@ -70,8 +70,10 @@ def main():
             sys.stdout.flush()
             continue
 
-        sys.stdout.write(f"{user_input}: command not found\n")
-        sys.stdout.flush()
+        if not any(user_input.startswith(cmd) for cmd in builtin_cmds):
+            sys.stdout.write(f"{user_input}: command not found\n")
+            sys.stdout.flush()
+
 
 if __name__ == "__main__":
     main()
