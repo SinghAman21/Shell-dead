@@ -18,9 +18,9 @@ def main():
     # print("Logs from your program will appear here!")
     # Uncomment this block to pass the first stage
     # Wait for user input and print it back
-    builtin_cmds = ["echo", "exit 0", "type"]
+    builtin_cmds = ["echo", "exit 0", "type", "cd", "pwd"]
     PATH = os.environ.get("PATH")
-    current_directory = os.getcwd()
+    # current_directory = os.getcwd()
     # print("Your Current Working is Directory:", current_directory)
     # print("PATH:", PATH)
     while True:
@@ -43,7 +43,7 @@ def main():
             cmd = user_input.split(" ")[1]
             if cmd in builtin_cmds:
                 # sys.stdout.write(f"{cmd} is a shell builtin")
-                sys.stdout.write(f"{cmd} is a shell builtin")
+                sys.stdout.write(f"{cmd} is a shell builtin\n")
                 sys.stdout.flush()
                 continue
             
@@ -71,8 +71,9 @@ def main():
             sys.stdout.flush()
             continue
 
-        sys.stdout.write(f"{user_input}: command not found\n")
-        sys.stdout.flush()
+        if not any(user_input.startswith(cmd) for cmd in builtin_cmds):
+            sys.stdout.write(f"{user_input}: command not found\n")
+            sys.stdout.flush()
 
         if user_input.startswith("cd"):
             parts = user_input.split(" ", 1)  # Split only once to avoid IndexError
@@ -87,6 +88,9 @@ def main():
                         print(f"The path '{path}' does not exist.")
             else:
                 print("No path provided. Usage: cd <path>")
+
+        if user_input == "pwd":
+            print("pwd: " + os.getcwd())
 
 if __name__ == "__main__":
     main()
