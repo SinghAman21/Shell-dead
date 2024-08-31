@@ -21,10 +21,10 @@ def main():
     builtin_cmds = ["echo", "exit 0", "type"]
     PATH = os.environ.get("PATH")
     current_directory = os.getcwd()
-    print("Your Current Working is Directory:", current_directory)
+    # print("Your Current Working is Directory:", current_directory)
     # print("PATH:", PATH)
     while True:
-        sys.stdout.write("\u2620  ")
+        sys.stdout.write(os.getcwd() + "> "   "\u2620  ")
         sys.stdout.flush()
         user_input = input()
         if user_input == "exit 0":
