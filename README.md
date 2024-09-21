@@ -1,35 +1,71 @@
-[![progress-banner](https://backend.codecrafters.io/progress/shell/110338c0-c8c7-4630-b313-c619c66fc240)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
 
-This is a starting point for Python solutions to the
-["Build Your Own Shell" Challenge](https://app.codecrafters.io/courses/shell/overview).
+# Shell Dead
 
-In this challenge, you'll build your own POSIX compliant shell that's capable of
-interpreting shell commands, running external programs and builtin commands like
-cd, pwd, echo and more. Along the way, you'll learn about shell command parsing,
-REPLs, builtin commands, and more.
+Shell Dead is a terminal-based app that works like a standard terminal, allowing you to execute commands and perform tasks. It’s still in the development stage, with more features being added soon.
 
-**Note**: If you're viewing this repo on GitHub, head over to
-[codecrafters.io](https://codecrafters.io) to try the challenge.
 
-# Passing the first stage
 
-The entry point for your `shell` implementation is in `app/main.py`. Study and
-uncomment the relevant code, and push your changes to pass the first stage:
 
-```sh
-git add .
-git commit -m "pass 1st stage" # any msg
-git push origin master
-```
 
-Time to move on to the next stage!
 
-# Stage 2 & beyond
 
-Note: This section is for stages 2 and beyond.
+## Tech Stack
 
-1. Ensure you have `python (3.11)` installed locally
-1. Run `./your_program.sh` to run your program, which is implemented in
-   `app/main.py`.
-1. Commit your changes and run `git push origin master` to submit your solution
-   to CodeCrafters. Test output will be streamed to your terminal.
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
+
+
+
+## Features
+
+- Command-line Interface (CLI) Simulation: Basic shell commands can be run, and the output is displayed in a console-like interface.
+- Kivy-based GUI: A simple interface using Kivy with text input and output. **In-progress**
+- Command Handler: The application processes commands entered by the user, managing file paths, directories, and simple command execution.
+- Loader Animation: Simulates loading behavior when searching for a command (type command).
+- Interrupt Handling: Gracefully handles keyboard interrupts.
+
+## Dependencies
+Python 3.x    
+Kivy (GUI framework)  
+`os`, `threading`, `time`, `sys` libraries (standard Python libraries)
+
+
+## Supported Commands   
+
+1. `echo <message`>:
+Prints the <message> to the shell output.
+
+Example: echo Hello World
+Output: Hello World  
+2. `exit 0`:
+Exits the shell application.
+
+Example: `exit 0`
+Output: Exiting... (closes the shell)
+3. `cd <path>`:
+Changes the current directory to the specified <path>.
+
+Example: `cd ..`
+Output: Changes the directory to the parent directory.
+
+Error Handling: If the provided path does not exist, an error message is displayed.  
+4. `pwd`:
+Prints the current working directory.
+
+Example: `pwd`
+Output: /home/user/shell (depending on the current directory)  
+5. `ls`:
+Lists the files in the current directory.
+
+Example: `ls`
+Output: Displays all files in the current working directory.  
+6. `type <command>`:
+Searches for the command in the system’s PATH directories. If the command exists, its location is displayed; otherwise, a "not found" message appears.
+
+Example: `type` python
+Output: python is in /usr/bin/python
+
+Loader Animation: While searching, the shell shows a loading animation in the output box.
+
+## PS: I am still working on this project, so there is plenty of room for additional features. Feel free to contribute by raising issues
+
+### Thank you for reading
